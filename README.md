@@ -1,2 +1,10 @@
-# Mini-Shooter-game
-A simple web shooter game built for the Ritual Community with HTML, CSS, and JS.
+# Simple Shooter Game
+A fun little web shooter made with HTML, CSS, and JavaScript.
+
+🎮 **Play it here:** [Play Now](https://maniiarc.github.io/Mini-Shooter-game/)
+
+Controls:
+- Move: Left / Right Arrow or A / D
+- Shoot: Spacebar or Click
+- Survive and score points before time runs out!
+
