@@ -29,6 +29,7 @@ let running = false; // Start as false to show start screen
 let shootCooldown = 0;
 let gameState = 'start'; // 'start', 'playing', 'ended'
 let spacePressed = false; // Debounce spacebar
+let overlayOpacity = 0.5;
 
 // Player object
 // --- Load player image ---
@@ -206,6 +207,13 @@ function update(dt) {
 }
 
   function draw() {
+    if (bgReady) ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+  
+  // Smoothly fade overlay out when running
+  if (running && overlayOpacity > 0.1) overlayOpacity -= 0.02;
+  
+  ctx.fillStyle = `rgba(0, 0, 0, ${overlayOpacity})`;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
      // Force overlay to stay hidden during gameplay
   if (running && !overlay.classList.contains('hidden')) {
     overlay.classList.add('hidden');
@@ -217,8 +225,8 @@ function update(dt) {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-
- 
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.79)'; // 0.7 = 70% darkness; adjust as you like
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Draw start or end screen
   if (!running) {
